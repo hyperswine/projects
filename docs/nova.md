@@ -4,6 +4,8 @@ sidebar_position: 5
 
 # Nova
 
+![Nova](/img/NOVA-FPGA.png)
+
 Nova is a complete FPGA solution for all your simulation and verification needs. It includes boards and software (spectro), all free of charge.
 
 ## How does Nova work?

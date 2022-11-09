@@ -34,15 +34,31 @@ Type2 addr:
     StoreVal
 Type3:
     Return
+Type4 addr, size:
+    Sha256
+    Lookup
+    FourierTransform
 ```
 
-## Spectre-U
+## Spectre-U and Spectre-S
 
 Spectre User is the user optimised configuration of the spectre system.
 
-## Spectre-S
-
 Spectre Server is the high end optimised configuration of the spectre system. Instead of focusing on efficiency, heat generation, etc. We mainly focus on scalability and the highest performance possible.
+
+## A deep dive
+
+How does spectre work exactly?
+
+First, we start with a concept known as an "executor". An executor is an hardware unit whose sole job is to execute a function. We also have something known as an array executor. An array executor can be seen as an SIMD unit. This may be similar to other accelerators such as the SHA-256 and etc.
+
+There are three main types of executors:
+
+- I-type executors
+- D-type SIMT executors
+- Accelerator executors
+
+A spectre instruction targets a specific executor. It first gets decoded in decode stage 1 and placed into queue stage 1. There it is dequeued to a chosen executor cluster. It is then decoded again and queued to execute in an available executor suited for it.
 
 ## Backers
 

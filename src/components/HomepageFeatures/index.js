@@ -23,16 +23,16 @@ const FeatureList = [
     Img: Neutron,
     description: <>A minimalist kernel built for efficiency and performance</>,
   },
-  {
-    title: <a href="../docs/nova">Nova</a>,
-    Img: Nova,
-    description: <>A complete FPGA solution</>,
-  },
-  {
-    title: <a href="../docs/universal-fabricator">Quantii</a>,
-    Img: Quantii,
-    description: <>A complete fabrication solution. The ultimate solution</>,
-  },
+  // {
+  //   title: <a href="../docs/nova">Nova</a>,
+  //   Img: Nova,
+  //   description: <>A complete FPGA solution</>,
+  // },
+  // {
+  //   title: <a href="../docs/universal-fabricator">Quantii</a>,
+  //   Img: Quantii,
+  //   description: <>A complete fabrication solution. The ultimate solution</>,
+  // },
 ]
 
 function Feature({ Img, title, description }) {

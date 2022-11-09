@@ -30,3 +30,9 @@ Don't know how it works? Try it in `rein`, a lightweight environment built speci
 Even though rei is meant to be a language for neutron core and app development, it works in a VM too (also riscv and arm, but we'll talk about that later).
 
 The VM is pretty much a complete platform for running rei programs. Most std functionalities just work. `core::arch` are specific to platforms your developing for.
+
+## Progress List
+
+- Drew up codebase for main libraries
+- Refactor the idea to take arbitrary expressions and treat macros like any other keyword
+- Ability to treat macros like any other function and simply use them by including the base prelude library which exports `Expr` among other parser nodes
