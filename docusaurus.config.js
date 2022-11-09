@@ -8,7 +8,7 @@ const katex = require('rehype-katex')
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Jasen\'s Projects',
-  url: 'https://hyperswine.github.io',
+  url: 'https://n.project-spectre.info',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
