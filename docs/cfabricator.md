@@ -1,3 +1,7 @@
+---
+sidebar_position: 2
+---
+
 # CFabricator
 
 CFabricator is a complete additive manufacturing solution*.

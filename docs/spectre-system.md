@@ -1,3 +1,7 @@
+---
+sidebar_position: 1
+---
+
 # Spectre System
 
 The spectre system is a computing platform that is built from first principles.
@@ -14,10 +18,3 @@ Spectre User is the user optimised configuration of the spectre system.
 ## Spectre-S
 
 Spectre Server is the high end optimised configuration of the spectre system. Instead of focusing on efficiency, heat generation, etc. We mainly focus on scalability and the highest performance possible.
-
-```mermaid
-graph TD;
-    A-->B;
-    B-->C;
-    C-->D;
-```
