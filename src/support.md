@@ -6,3 +6,9 @@ To support me, donate to my Tether:
 ```rust
 Address = 0x4E6341FA7F90aAD4dEC595A8A556CB694b1c047A
 ```
+
+## Equations
+
+$$
+Success = Time \times Money
+$$
