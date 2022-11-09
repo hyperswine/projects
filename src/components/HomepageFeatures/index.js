@@ -4,6 +4,8 @@ import styles from "./styles.module.css"
 import Spectre from "/static/img/Spectre.png"
 import Rei from "/static/img/Rei-Light.png"
 import Neutron from "/static/img/Neutron.png"
+import Nova from "/static/img/NOVA-FPGA.png"
+import Quantii from "/static/img/Quantii.png"
 
 const FeatureList = [
   {
@@ -20,6 +22,16 @@ const FeatureList = [
     title: <a href="../docs/neutron">Neutron</a>,
     Img: Neutron,
     description: <>A minimalist kernel built for efficiency and performance</>,
+  },
+  {
+    title: <a href="../docs/nova">Nova</a>,
+    Img: Nova,
+    description: <>A complete FPGA solution</>,
+  },
+  {
+    title: <a href="../docs/universal-fabricator">Quantii</a>,
+    Img: Quantii,
+    description: <>A complete fabrication solution. The ultimate solution</>,
   },
 ]
 

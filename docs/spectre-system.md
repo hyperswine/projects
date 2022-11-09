@@ -48,4 +48,4 @@ Spectre Server is the high end optimised configuration of the spectre system. In
 
 If you back spectre, you will get a few free samples when they are available.
 
-Pledge Here:
+[Pledge Here](/docs/support.md)
