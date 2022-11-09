@@ -8,6 +8,7 @@ const katex = require('rehype-katex')
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Jasen\'s Projects',
+  tagline: 'Can things just work?',
   url: 'https://n.project-spectre.info',
   baseUrl: '/',
   onBrokenLinks: 'throw',
@@ -61,20 +62,16 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: 'Jasen Qin\'s Projects',
-        logo: {
-          alt: 'My Site Logo',
-          src: 'img/logo.svg',
-        },
+        title: 'Overview',
         items: [
           {
             type: 'doc',
             docId: 'spectre-system',
             position: 'left',
-            label: 'List',
+            label: 'Project List',
           },
           {
-            href: 'https://github.com/facebook/docusaurus',
+            href: 'https://github.com/hyperswine/projects',
             label: 'GitHub',
             position: 'right',
           },

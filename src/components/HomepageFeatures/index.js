@@ -4,7 +4,7 @@ import styles from './styles.module.css'
 
 const FeatureList = [
   {
-    title: 'Spectre',
+    title: (<a href="/docs/spectre-system">Spectre</a>),
     Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
