@@ -43,3 +43,9 @@ Spectre User is the user optimised configuration of the spectre system.
 ## Spectre-S
 
 Spectre Server is the high end optimised configuration of the spectre system. Instead of focusing on efficiency, heat generation, etc. We mainly focus on scalability and the highest performance possible.
+
+## Backers
+
+If you back spectre, you will get a few free samples when they are available.
+
+Pledge Here:
