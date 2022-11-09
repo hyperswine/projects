@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Spectre System
 
-![Spectre](/img/Spectre-Logo.png)
+![Spectre](/img/Spectre.png)
 
 The spectre system is a computing platform that is built from first principles.
 Minimalism, user-centric, efficiency and scalablility are philosophies I like.

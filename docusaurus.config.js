@@ -8,7 +8,7 @@ const katex = require("rehype-katex")
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "Jasen's Projects",
-  tagline: "Can things just work?",
+  tagline: "Is it possible for things to just work?",
   url: "https://n.project-spectre.info",
   baseUrl: "/",
   onBrokenLinks: "throw",
