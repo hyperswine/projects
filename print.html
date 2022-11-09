@@ -26,6 +26,8 @@
         <link rel="stylesheet" href="ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     </head>
     <body>
         <!-- Provide site root to javascript -->
@@ -138,12 +140,17 @@
                         <h1 id="spectre-system"><a class="header" href="#spectre-system">Spectre System</a></h1>
 <p>The spectre system is a computing platform that is built from first principles.
 Minimalism, user-centric, efficiency and scalablility are philosophies I like.</p>
-<p>Sure, you don't need to be 100% efficient, but even 97% is much much better than 40% or even 70%. Especially for devices we carry on us and use as supplementing tools. For high end servers and computing racks, the philosophy changes somewhat.</p>
+<p>Sure, you don't need to be $100%$ efficient, but even $97%$ is much much better than $40%$ or even $70%$. Especially for devices we carry on us and use as supplementing tools. For high end servers and computing racks, the philosophy changes somewhat.</p>
 <p>The spectre hardware design involves a set of compute units such as a minimalist SoC and interconnect system. We rely more on wireless connectivity through 2.4-5GHz connections for peripherals such as mice and keyboards, headsets and displays. Charging is done through magnetised thunderbolt 5. Other peripherals such as 2FA keys and crypto keys are accomplished through NFC.</p>
 <h2 id="spectre-u"><a class="header" href="#spectre-u">Spectre-U</a></h2>
 <p>Spectre User is the user optimised configuration of the spectre system.</p>
 <h2 id="spectre-s"><a class="header" href="#spectre-s">Spectre-S</a></h2>
 <p>Spectre Server is the high end optimised configuration of the spectre system. Instead of focusing on efficiency, heat generation, etc. We mainly focus on scalability and the highest performance possible.</p>
+<pre><code class="language-mermaid">graph TD;
+    A--&gt;B;
+    B--&gt;C;
+    C--&gt;D;
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="rei"><a class="header" href="#rei">Rei</a></h1>
 <p>Rei is a minimalist programming language built to for optimal systems design. Backward compatibility is not an excuse, and in Rei, many FFIs and legacy APIs and ideals may not even be supported at all.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="cfabricator"><a class="header" href="#cfabricator">CFabricator</a></h1>
@@ -184,9 +191,13 @@ To support me, donate to my Tether:</p>
         <script src="book.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Custom JS scripts -->
+        <script type="text/javascript" src="mermaid.min.js"></script>
+        <script type="text/javascript" src="mermaid-init.js"></script>
         <script type="text/javascript">
         window.addEventListener('load', function() {
-            window.setTimeout(window.print, 100);
+            MathJax.Hub.Register.StartupHook('End', function() {
+                window.setTimeout(window.print, 100);
+            });
         });
         </script>
     </body>
