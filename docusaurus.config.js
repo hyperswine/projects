@@ -9,7 +9,7 @@ const katex = require('rehype-katex')
 const config = {
   title: 'Jasen\'s Projects',
   url: 'https://hyperswine.github.io',
-  baseUrl: '/',
+  baseUrl: '/projects/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
