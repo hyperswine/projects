@@ -1,3 +1,5 @@
 # Summary
 
-- [Chapter 1](./chapter_1.md)
+- [Spectre System](./spectre-system.md)
+- [Rei](./rei.md)
+- [CFabricator](./cfabricator.md)
