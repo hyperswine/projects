@@ -36,3 +36,9 @@ The VM is pretty much a complete platform for running rei programs. Most std fun
 - Drew up codebase for main libraries
 - Refactor the idea to take arbitrary expressions and treat macros like any other keyword
 - Ability to treat macros like any other function and simply use them by including the base prelude library which exports `Expr` among other parser nodes
+
+## Todo
+
+- Implementation of each component and tests in rust
+- Type inference and smart consteval and caching
+- High level interpretation and std impl `use Rust::std::`
