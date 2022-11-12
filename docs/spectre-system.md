@@ -9,17 +9,35 @@ sidebar_position: 1
 The spectre system is a computing platform that is built from first principles.
 Minimalism, user-centric, efficiency and scalablility are philosophies I like.
 
-Sure, you don't need to be $100\%$ efficient, but even $97\%$ is much much better than $40\%$ or even $70\%$. Especially for devices we carry on us and use as supplementing tools. For high end servers and computing racks, the philosophy changes somewhat.
-
-The spectre hardware design involves a set of compute units such as a minimalist SoC and interconnect system. We rely more on wireless connectivity through 2.4-5GHz connections for peripherals such as mice and keyboards, headsets and displays. Charging is done through magnetised thunderbolt 5. Other peripherals such as 2FA keys and crypto keys are accomplished through NFC.
-
 ## Spectre-U and Spectre-S
 
-Spectre User is the user optimised configuration of the spectre system.
+Spectre User is the user optimised configuration of the spectre system. It is the config that you and I would want to use on daily basis in our smartphones, watches, laptops, etc. There is a subset of Spectre-S (Spectre-E) that is used in embedded.
 
 Spectre Server is the high end optimised configuration of the spectre system. Instead of focusing on efficiency, heat generation, etc. We mainly focus on scalability and the highest performance possible.
 
+## Executors
+
+How does spectre work exactly?
+
+First, we start with a concept known as an "executor". An executor is an hardware unit whose sole job is to execute a function. We also have something known as an array executor. An array executor can be seen as an SIMD unit. This may be similar to other accelerators such as the SHA-256 and etc.
+
+There are three main types of executors:
+
+- I-type executors
+- D-type SIMT executors
+- Accelerator executors
+
+A spectre instruction targets a specific executor. It first gets decoded in decode stage 1 and placed into queue stage 1. There it is dequeued to a chosen executor cluster. It is then decoded again and queued to execute in an available executor suited for it.
+
+### Functions
+
+Functions are defined as parameterised blocks of code to be "called" into, ran from start to finish, and be "returned" from.
+
+The spectre architecture knows of functions in the above form. The first thing that's run on a spectre system is the `_entry` function of a process. The first process to exist is the BIOS firmware process, which is semi hardcoded into the uarch. All subsequent processes follow a similar route of entry. Each time a process exits it returns from `_entry` to the caller. In the context of userspace applications, this is the in memory scheduler driver library. In the context of the kernel, it is the bootloader and BIOS, and eventually the `_reset` instruction which is like a hard return.
+
 ## Spectre ISA
+
+The spectre system is unique in that is has a uniform instruction set. That means to program all executors you simply use the same context. Unlike cpu-gpu splits where you have to program each separately through e.g. shaders.
 
 The spectre ISA is quite simple. It consists of like 10 atomic instructions:
 
@@ -46,21 +64,7 @@ Type4 addr, size:
     FourierTransform
 ```
 
-## A deep dive
-
-How does spectre work exactly?
-
-First, we start with a concept known as an "executor". An executor is an hardware unit whose sole job is to execute a function. We also have something known as an array executor. An array executor can be seen as an SIMD unit. This may be similar to other accelerators such as the SHA-256 and etc.
-
-There are three main types of executors:
-
-- I-type executors
-- D-type SIMT executors
-- Accelerator executors
-
-A spectre instruction targets a specific executor. It first gets decoded in decode stage 1 and placed into queue stage 1. There it is dequeued to a chosen executor cluster. It is then decoded again and queued to execute in an available executor suited for it.
-
-### Notes on chip design
+### Note on Chip Design
 
 The latest SoA designs use chiplets and die stacking. As well as maximising the bandwidth of buses. Spectre utilises SoC based chiplets for combining executor clusters, memory units, and caches. It forces as many components together as possible and utilises wireless networking where possible to interface with peripheral devices. Gone are the days of USB, HDMI, PCIe, or what have you. Everything is packaged together nicely and can be upgraded together if you wish to reuse the chassis or the board.
 
@@ -83,6 +87,12 @@ let sn888 = Chip {
     cpu: [CortexA77(); 8]
 }
 ```
+
+## Notes
+
+Sure, you don't need to be $100\%$ efficient, but even $97\%$ is much much better than $40\%$ or even $70\%$. Especially for devices we carry on us and use as supplementing tools. For high end servers and computing racks, the philosophy changes somewhat.
+
+The spectre hardware design involves a set of compute units such as a minimalist SoC and interconnect system. We rely more on wireless connectivity through 2.4-5GHz connections for peripherals such as mice and keyboards, headsets and displays. Charging is done through magnetised thunderbolt 5. Other peripherals such as 2FA keys and crypto keys are accomplished through NFC.
 
 ## Backers
 
