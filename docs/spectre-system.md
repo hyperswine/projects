@@ -35,6 +35,36 @@ Functions are defined as parameterised blocks of code to be "called" into, ran f
 
 The spectre architecture knows of functions in the above form. The first thing that's run on a spectre system is the `_entry` function of a process. The first process to exist is the BIOS firmware process, which is semi hardcoded into the uarch. All subsequent processes follow a similar route of entry. Each time a process exits it returns from `_entry` to the caller. In the context of userspace applications, this is the in memory scheduler driver library. In the context of the kernel, it is the bootloader and BIOS, and eventually the `_reset` instruction which is like a hard return.
 
+Functions are called by jumping to their absolute addresses, or relative addresses if you want to save memory. All arguments passed to the function would be saved onto the thread's stack beforehand. The way it does so is through the spectre calling convention. Its actually quite simple:
+
+```rust
+// language code
+f: (int: i32) => int + 1
+
+f()
+
+// machine code
+f:
+    store $sp + 1
+    jump $sp - size_of_args
+
+callee:
+    store return_addr
+    store int
+    jump f
+    // would then pop if need be 
+```
+
+Now would it possibly use more memory sometimes? Maybe. But I think it is a worthy tradeoff for efficiency.
+
+### Peripheral Communication
+
+Any device or system not embedded on the main system (usually the SoC) itself would require peripheral protocols. These include PCIe, USB, Motherboard bus, etc.
+
+Furthermore, the latency (and possibly throughput) associated with peripheral communication are orders of magnitude slower than inter-SoC communication. "Functions" executed by peripheral systems may also be subject to sporadic user input, unstable internet connections, etc. Hence the concept of direct function execution cannot be applied as easily. Instead, a hardware based effect system is used to manage and wait on peripheral systems which may take their time to reply.
+
+We refer to peripheral communication as IO. Most IO are performed through memory mapped reads and writes. A userspace application would link a driver in execute only mode and call it through a library each time it wants to e.g. read from disk, communicate with devices and computers through the wireless card. The driver code may request a DMA transaction by writing to the memory mapped DMA controller with the request struct. If not contentious, the request would be promptly processed and the controller would stream the request packet to the desired device.
+
 ## Spectre ISA
 
 The spectre system is unique in that is has a uniform instruction set. That means to program all executors you simply use the same context. Unlike cpu-gpu splits where you have to program each separately through e.g. shaders.
@@ -62,6 +92,9 @@ Type4 addr, size:
     Sha256
     Lookup
     FourierTransform
+Type5 addr, addr, size:
+    Read
+    Write
 ```
 
 ### Note on Chip Design
