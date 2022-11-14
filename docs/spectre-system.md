@@ -6,7 +6,7 @@ sidebar_position: 1
 
 ![Spectre](/img/Spectre.png)
 
-The spectre system is a computing platform that is built from first principles.
+The [spectre system](https://hyperswine.github.io/spectre) is a computing platform that is built from first principles.
 Minimalism, user-centric, efficiency and scalablility are philosophies I like.
 
 ## Spectre-U and Spectre-S

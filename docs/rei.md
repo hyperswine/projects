@@ -4,9 +4,11 @@ sidebar_position: 4
 
 # Rei
 
-Rei is a minimalist programming language built to for optimal systems design. Backward compatibility is not an excuse, and in Rei, many FFIs and legacy APIs and ideals may not even be supported at all.
+[Rei](hyperswine.github.io/rei) is a minimalist programming language built to for optimal systems design. Backward compatibility is not an excuse, and in Rei, many FFIs and legacy APIs and ideals may not even be supported at all.
 
 Rei allows one to do anything imaginable. It is a beyonder language whose job is to take the hardware beyond unenlightenment.
+
+[Check it out!](hyperswine.github.io/rei)
 
 Libraries:
 
