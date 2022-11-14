@@ -8,7 +8,7 @@ sidebar_position: 4
 
 Rei allows one to do anything imaginable. It is a beyonder language whose job is to take the hardware beyond unenlightenment.
 
-[Check it out!](hyperswine.github.io/rei)
+[Check it out!](https://hyperswine.github.io/rei)
 
 Libraries:
 
