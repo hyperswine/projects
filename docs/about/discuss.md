@@ -9,7 +9,7 @@ sidebar_position: 3
         data-repo-id="R_kgDOIZg-sQ"
         data-category="Announcements"
         data-category-id="DIC_kwDOIZg-sc4CSmin"
-        data-mapping="title"
+        data-mapping="pathname"
         data-strict="0"
         data-reactions-enabled="1"
         data-emit-metadata="0"
