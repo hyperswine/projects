@@ -1,8 +1,8 @@
 ---
-sidebar_position: 8
+sidebar_position: 1
 ---
 
-# Resume
+# About Me
 
 I am interested in a variety of computer-related
 technical subjects with years of experience in most popular software suites and devel-

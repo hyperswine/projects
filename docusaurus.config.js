@@ -73,10 +73,16 @@ const config = {
         title: "Overview",
         items: [
           {
-            type: "doc",
-            docId: "spectre-system",
+            type: "docSidebar",
             position: "left",
             label: "Project List",
+            sidebarId: "main"
+          },
+          {
+            type: 'docSidebar',
+            sidebarId: 'about',
+            label: 'About',
+            position: 'left',
           },
           {
             href: "https://github.com/hyperswine/projects",
@@ -108,6 +114,18 @@ const config = {
       //   searchPagePath: "search",
       // },
     }),
+    
+    // plugins: [
+    //   [
+    //     'content-docs',
+    //     ({
+    //       id: 'about',
+    //       path: 'about',
+    //       routeBasePath: 'about',
+    //       sidebarPath: require.resolve('./sidebarsAbout.js'),
+    //     })
+    //   ]
+    // ]
 }
 
 module.exports = config
