@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # Support Me
 
-I'm a pretty broke dude. If you're interested in anything I've got, I'd love it if you could plege some $$ for it. Theres a bunch of rewards and prototypes too.
+If you're interested in anything I've got, I'd love it if you could plege some $$ for it. Theres a bunch of rewards and prototypes too.
 To support me, donate to my Tether:
 
 ```rust

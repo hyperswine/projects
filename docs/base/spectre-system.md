@@ -97,11 +97,15 @@ Type5 addr, addr, size:
     Write
 ```
 
-### Note on Chip Design
+:::note
+
+**Note on Chip Design**
 
 The latest SoA designs use chiplets and die stacking. As well as maximising the bandwidth of buses. Spectre utilises SoC based chiplets for combining executor clusters, memory units, and caches. It forces as many components together as possible and utilises wireless networking where possible to interface with peripheral devices. Gone are the days of USB, HDMI, PCIe, or what have you. Everything is packaged together nicely and can be upgraded together if you wish to reuse the chassis or the board.
 
 Less is more.
+
+:::
 
 ## Expected Performance
 
@@ -121,11 +125,13 @@ let sn888 = Chip {
 }
 ```
 
-## Notes
+:::note
 
 Sure, you don't need to be $100\%$ efficient, but even $97\%$ is much much better than $40\%$ or even $70\%$. Especially for devices we carry on us and use as supplementing tools. For high end servers and computing racks, the philosophy changes somewhat.
 
 The spectre hardware design involves a set of compute units such as a minimalist SoC and interconnect system. We rely more on wireless connectivity through 2.4-5GHz connections for peripherals such as mice and keyboards, headsets and displays. Charging is done through magnetised thunderbolt 5. Other peripherals such as 2FA keys and crypto keys are accomplished through NFC.
+
+:::
 
 ## Backers
 
