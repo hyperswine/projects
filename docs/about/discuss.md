@@ -4,10 +4,6 @@ sidebar_position: 3
 
 # Discuss
 
-```mdx-code-block
-import 'giscus'
-```
-
 General Dicussion Forum.
 
 <script type="module" src="https://unpkg.com/giscus?module"></script>

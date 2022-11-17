@@ -4,10 +4,6 @@ sidebar_position: 1
 
 # Spectre System
 
-```mdx-code-block
-import 'giscus'
-```
-
 ![Spectre](/img/Spectre.png)
 
 The [spectre system](https://hyperswine.github.io/spectre) is a computing platform that is built from first principles.
@@ -18,6 +14,8 @@ Minimalism, user-centric, efficiency and scalablility are philosophies I like.
 Spectre User is the user optimised configuration of the spectre system. It is the config that you and I would want to use on daily basis in our smartphones, watches, laptops, etc. There is a subset of Spectre-S (Spectre-E) that is used in embedded.
 
 Spectre Server is the high end optimised configuration of the spectre system. Instead of focusing on efficiency, heat generation, etc. We mainly focus on scalability and the highest performance possible.
+
+---
 
 ## Executors
 
@@ -69,6 +67,8 @@ Furthermore, the latency (and possibly throughput) associated with peripheral co
 
 We refer to peripheral communication as IO. Most IO are performed through memory mapped reads and writes. A userspace application would link a driver in execute only mode and call it through a library each time it wants to e.g. read from disk, communicate with devices and computers through the wireless card. The driver code may request a DMA transaction by writing to the memory mapped DMA controller with the request struct. If not contentious, the request would be promptly processed and the controller would stream the request packet to the desired device.
 
+---
+
 ## Spectre ISA
 
 The spectre system is unique in that is has a uniform instruction set. That means to program all executors you simply use the same context. Unlike cpu-gpu splits where you have to program each separately through e.g. shaders.
@@ -111,6 +111,8 @@ Less is more.
 
 :::
 
+---
+
 ## Expected Performance
 
 I haven't tested it yet. But Im quite confident that it could see some pretty significant performance increases.
@@ -137,15 +139,31 @@ The spectre hardware design involves a set of compute units such as a minimalist
 
 :::
 
+---
+
 ## Backers
 
+:::tip
 If you back spectre, you will get a few free samples when they are available.
 
 [Pledge Here](/docs/about/support)
+:::
 
-People who have pleged:
+Those who have pleged:
 
 - Quantii
+
+## Tiers
+
+| Feature   |      Description      |  Pledge ($USD) |
+|----------|:-------------:|------:|
+| Basic | Basic board (does not include extras) | 15 |
+| Standard | It just works | 25 |
+| Premium | The whole shebang | 35 |
+
+I'll try to make this look less bad soon
+
+---
 
 <script type="module" src="https://unpkg.com/giscus?module"></script>
 
