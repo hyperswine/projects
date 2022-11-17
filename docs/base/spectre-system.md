@@ -131,7 +131,7 @@ The spectre hardware design involves a set of compute units such as a minimalist
 
 If you back spectre, you will get a few free samples when they are available.
 
-<!-- [Pledge Here](/about/support) -->
+[Pledge Here](/docs/about/support)
 
 People who have pleged:
 

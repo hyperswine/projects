@@ -9,17 +9,17 @@ import Quantii from "/static/img/Quantii.png"
 
 const FeatureList = [
   {
-    title: <a href="../docs/spectre-system">Spectre System</a>,
+    title: <a href="../docs/base/spectre-system">Spectre System</a>,
     Img: Spectre,
     description: <>Spectre is a computing system</>,
   },
   {
-    title: <a href="../docs/rei">Rei</a>,
+    title: <a href="../docs/base/rei">Rei</a>,
     Img: Rei,
     description: <>A Language that just works</>,
   },
   {
-    title: <a href="../docs/neutron">Neutron</a>,
+    title: <a href="../docs/base/neutron">Neutron</a>,
     Img: Neutron,
     description: <>A minimalist kernel built for efficiency and performance</>,
   },
