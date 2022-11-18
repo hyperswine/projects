@@ -21,15 +21,19 @@ Spectre Server is the high end optimised configuration of the spectre system. In
 
 How does spectre work exactly?
 
-First, we start with a concept known as an "executor". An executor is an hardware unit whose sole job is to execute a function. We also have something known as an array executor. An array executor can be seen as an SIMD unit. This may be similar to other accelerators such as the SHA-256 and etc.
+First, we start with a concept known as an "executor". An executor is a hardware unit whose job is to execute a `function`. We also have something known as an array executor. An array executor can be seen as an SIMD unit. Finally we have accelerator type executors for rapid, low latency SHA-256 and etc. This is for Spectre-U; for Spectre-S, we optimise instead for higher throughput.
 
-There are three main types of executors:
+:::tip
+The three main types of executors:
 
 - I-type executors
-- D-type SIMT executors
+- D-type SIMD executors
 - Accelerator executors
+:::
 
 A spectre instruction targets a specific executor. It first gets decoded in decode stage 1 and placed into queue stage 1. There it is dequeued to a chosen executor cluster. It is then decoded again and queued to execute in an available executor suited for it.
+
+Like gpgpu shader clusters, executor complexes can be seen as SIMT-able units.
 
 ### Functions
 
@@ -102,13 +106,11 @@ Type5 addr, addr, size:
 ```
 
 :::note
-
-**Note on Chip Design**
+**Chip Design**
 
 The latest SoA designs use chiplets and die stacking. As well as maximising the bandwidth of buses. Spectre utilises SoC based chiplets for combining executor clusters, memory units, and caches. It forces as many components together as possible and utilises wireless networking where possible to interface with peripheral devices. Gone are the days of USB, HDMI, PCIe, or what have you. Everything is packaged together nicely and can be upgraded together if you wish to reuse the chassis or the board.
 
 Less is more.
-
 :::
 
 ---
@@ -132,11 +134,9 @@ let sn888 = Chip {
 ```
 
 :::note
-
 Sure, you don't need to be $100\%$ efficient, but even $97\%$ is much much better than $40\%$ or even $70\%$. Especially for devices we carry on us and use as supplementing tools. For high end servers and computing racks, the philosophy changes somewhat.
 
 The spectre hardware design involves a set of compute units such as a minimalist SoC and interconnect system. We rely more on wireless connectivity through 2.4-5GHz connections for peripherals such as mice and keyboards, headsets and displays. Charging is done through magnetised thunderbolt 5. Other peripherals such as 2FA keys and crypto keys are accomplished through NFC.
-
 :::
 
 ---

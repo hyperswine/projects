@@ -13,8 +13,6 @@ UCreator is a complete additive manufacturing solution*. It includes a full SLS 
 As a lead engineer at quantii, I am proud to announce the Quantii Fabricator, an SLS printer that is capable of printing anything to the heart's content.
 
 :::note
-
 *uses some substractive techniques such as CNCing for bigger chunks
 **uhh... this part will take a bit longer to implement
-
 :::

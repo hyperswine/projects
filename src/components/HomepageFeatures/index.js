@@ -6,6 +6,7 @@ import Rei from "/static/img/Rei-Light.png"
 import Neutron from "/static/img/Neutron.png"
 import Nova from "/static/img/NOVA-FPGA.png"
 import Quantii from "/static/img/Quantii.png"
+import AGVN from "/static/img/AGVN-System.png"
 
 const FeatureList = [
   {
@@ -22,6 +23,11 @@ const FeatureList = [
     title: <a href="../docs/base/neutron">Neutron</a>,
     Img: Neutron,
     description: <>A minimalist kernel built for efficiency and performance</>,
+  },
+  {
+    title: <a href="../docs/base/agvn">AGVN System</a>,
+    Img: AGVN,
+    description: <>A new and enlightened governing system for nations</>,
   },
   // {
   //   title: <a href="../docs/nova">Nova</a>,
