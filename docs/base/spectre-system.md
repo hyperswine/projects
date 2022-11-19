@@ -161,31 +161,61 @@ Those who have pleged:
 | Standard | It just works | 25 |
 | Premium | The whole shebang | 35 |
 
-I'll try to make this look less bad soon
-
-<!-- ```mdx-code-block
-import Tabs from '@theme/Tabs'
-import TabItem from '@theme/TabItem'
+```mdx-code-block
 import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
+import { motion } from "framer-motion"
 
-<Tabs>
-    <TabItem value="apple" label="Apple">This is an apple 🍎</TabItem>
-    <TabItem value="orange" label="Orange">This is an orange 🍊</TabItem>
-    <TabItem value="banana" label="Banana">This is a banana 🍌</TabItem>
-</Tabs>
+<Card style={{ padding: '1rem', display: "flex", justifyContent: "space-between" }}>
+<motion.div layout
+  whileHover={{ scale: 1.025, boxShadow: '2px 2px #9E9E9E' }}
+  whileTap={{ scale: 1.025 }}
+  style={{ marginBottom: '1rem' }}
+>
+    <Card style={{ padding: '1rem' }}>
+        <Card.Body>
+            <Card.Title>Tier 1</Card.Title>
+            <Card.Text>
+                Pledge $15 and get access to the basic pack: 
+            </Card.Text>
+            <Button variant="primary" href="/docs/about/support">Pledge</Button>
+        </Card.Body>
+    </Card>
+</motion.div>
 
-<Card style={{ width: '18rem' }}>
-    <Card.Body>
-        <Card.Title>Card Title</Card.Title>
-        <Card.Text>
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-        </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
-    </Card.Body>
+<motion.div layout
+  whileHover={{ scale: 1.025, boxShadow: '2px 2px #9E9E9E' }}
+  whileTap={{ scale: 1.025 }}
+  style={{ marginBottom: '1rem' }}
+>
+    <Card style={{ padding: '1rem' }}>
+        <Card.Body>
+            <Card.Title>Tier 2</Card.Title>
+            <Card.Text>
+                Pledge $25 and get access to the medium pack: 
+            </Card.Text>
+            <Button variant="primary" href="/docs/about/support">Pledge</Button>
+        </Card.Body>
+    </Card>
+</motion.div>
+
+<motion.div layout
+  whileHover={{ scale: 1.025, boxShadow: '2px 2px #9E9E9E' }}
+  whileTap={{ scale: 1.025 }}
+  style={{ marginBottom: '1rem' }}
+>
+    <Card style={{ padding: '1rem' }}>
+        <Card.Body>
+            <Card.Title>Tier 3</Card.Title>
+            <Card.Text>
+                Pledge $35 and get access to the exclusive hyper pack: 
+            </Card.Text>
+            <Button variant="primary" href="/docs/about/support">Pledge</Button>
+        </Card.Body>
+    </Card>
+</motion.div>
 </Card>
-``` -->
+```
 
 ---
 
