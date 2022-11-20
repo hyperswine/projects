@@ -45,7 +45,6 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
-          editUrl: "https://github.com/hyperswine/projects",
           remarkPlugins: [math],
           rehypePlugins: [katex],
         },
