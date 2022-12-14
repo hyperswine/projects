@@ -80,29 +80,29 @@ The spectre system is unique in that is has a uniform instruction set. That mean
 The spectre ISA is quite simple. It consists of like 10 atomic instructions:
 
 ```rust
-Type1 addr, addr:
+Instruction:
+    // Scalar Computation
     Add
     Sub
     Mult
     Div
+    Modulo
+    MultiplyAccumulate
     And
     Or
     Xor
-    // map array, function
-    Map
-Type2 addr:
     Not
+    // Vector Computation
+    Map
+    // Control
     Jump
-    StoreVal
-Type3:
-    Return
-Type4 addr, size:
+    // Memory Access
+    Copy
+    Store
+    // Acceleration Instruction
     Sha256
     Lookup
     FourierTransform
-Type5 addr, addr, size:
-    Read
-    Write
 ```
 
 :::note
