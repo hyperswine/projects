@@ -27,8 +27,8 @@ First, we start with a concept known as an "executor". An executor is a hardware
 The three main types of executors:
 
 - I-type executors
-- D-type SIMD executors
-- Accelerator executors
+- D-type SIMD/T executors
+- A-tpye executors
 :::
 
 A spectre instruction targets a specific executor. It first gets decoded in decode stage 1 and placed into queue stage 1. There it is dequeued to a chosen executor cluster. It is then decoded again and queued to execute in an available executor suited for it.
@@ -58,7 +58,7 @@ callee:
     store return_addr
     store int
     jump f
-    // would then pop if need be 
+    // would then pop/yield if need be 
 ```
 
 Now would it possibly use more memory sometimes? Maybe. But I think it is a worthy tradeoff for efficiency.
@@ -99,7 +99,7 @@ Instruction:
     // Memory Access
     Copy
     Store
-    // Acceleration Instruction
+    // Acceleration
     Sha256
     Lookup
     FourierTransform
@@ -119,7 +119,7 @@ Less is more.
 
 I haven't tested it yet. But Im quite confident that it could see some pretty significant performance increases.
 
-The biggest parts come from the lack of interrupts and pipeline flushing, less code to execute (maybe much less), enlightening compiler that generates efficient code based on SIMD on `map` and in-place/uniqueness values. Functions are never inlined and jump is fast. I-cache and D-cache are increased, especially D-cache. In a typical userspace GUI app, there is literally nothing that could interrupt the user's input so there is minimal latency. Since the CPU and PPU are combined into an MPU there is also minimal latency between CPU and PPU, and in fact, you can write "shaders" right in normal software and the shader functions/instructions get compiled in the same program to form specific D-type instructions. If you want specific accleration, use the acceleration library afforded by neutronapi or rei::std.
+The biggest parts come from the lack of interrupts and pipeline flushing, less code to execute (maybe much less), enlightening compiler that generates efficient code based on SIMD on `map` and in-place/uniqueness values. Functions are never inlined unless they're consteval'd or trivial and jump is fast. I-cache and D-cache are increased, especially D-cache. In a typical userspace GUI app, there is literally nothing that could interrupt the user's input so there is minimal latency. Since the CPU and PPU are combined into an MPU there is also minimal latency between CPU and PPU, and in fact, you can write "shaders" right in normal software and the shader functions/instructions get compiled in the same program to form specific D-type instructions. If you want specific accleration, use the acceleration library afforded by neutronapi or rei::std.
 
 ### Mathematical Analysis of Possible Performance
 
@@ -138,84 +138,6 @@ Sure, you don't need to be $100\%$ efficient, but even $97\%$ is much much bette
 
 The spectre hardware design involves a set of compute units such as a minimalist SoC and interconnect system. We rely more on wireless connectivity through 2.4-5GHz connections for peripherals such as mice and keyboards, headsets and displays. Charging is done through magnetised thunderbolt 5. Other peripherals such as 2FA keys and crypto keys are accomplished through NFC.
 :::
-
----
-
-## Backers
-
-:::tip
-If you back spectre, you will get a few free samples when they are available.
-
-[Pledge Here](/docs/about/support)
-:::
-
-Those who have pleged:
-
-- Quantii
-
-## Tiers
-
-| Feature   |      Description      |  Pledge ($USD) |
-|----------|:-------------:|------:|
-| Basic | Basic board (does not include extras) | 15 |
-| Standard | It just works | 25 |
-| Premium | The whole shebang | 35 |
-
-```mdx-code-block
-import Button from 'react-bootstrap/Button'
-import Card from 'react-bootstrap/Card'
-import { motion } from "framer-motion"
-
-<Card style={{ padding: '1rem', display: "flex", justifyContent: "space-between" }}>
-<motion.div layout
-  whileHover={{ scale: 1.025, boxShadow: '2px 2px #9E9E9E' }}
-  whileTap={{ scale: 1.025 }}
-  style={{ marginBottom: '1rem' }}
->
-    <Card style={{ padding: '1rem' }}>
-        <Card.Body>
-            <Card.Title>Tier 1</Card.Title>
-            <Card.Text>
-                Pledge $15 and get access to the basic pack: 
-            </Card.Text>
-            <Button variant="primary" href="/docs/about/support">Pledge</Button>
-        </Card.Body>
-    </Card>
-</motion.div>
-
-<motion.div layout
-  whileHover={{ scale: 1.025, boxShadow: '2px 2px #9E9E9E' }}
-  whileTap={{ scale: 1.025 }}
-  style={{ marginBottom: '1rem' }}
->
-    <Card style={{ padding: '1rem' }}>
-        <Card.Body>
-            <Card.Title>Tier 2</Card.Title>
-            <Card.Text>
-                Pledge $25 and get access to the medium pack: 
-            </Card.Text>
-            <Button variant="primary" href="/docs/about/support">Pledge</Button>
-        </Card.Body>
-    </Card>
-</motion.div>
-
-<motion.div layout
-  whileHover={{ scale: 1.025, boxShadow: '2px 2px #9E9E9E' }}
-  whileTap={{ scale: 1.025 }}
-  style={{ marginBottom: '1rem' }}
->
-    <Card style={{ padding: '1rem' }}>
-        <Card.Body>
-            <Card.Title>Tier 3</Card.Title>
-            <Card.Text>
-                Pledge $35 and get access to the exclusive hyper pack: 
-            </Card.Text>
-            <Button variant="primary" href="/docs/about/support">Pledge</Button>
-        </Card.Body>
-    </Card>
-</motion.div>
-</Card>
-```
 
 ---
 
