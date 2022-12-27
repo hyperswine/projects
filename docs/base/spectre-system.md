@@ -21,14 +21,14 @@ Spectre Server is the high end optimised configuration of the spectre system. In
 
 How does spectre work exactly?
 
-First, we start with a concept known as an "executor". An executor is a hardware unit whose job is to execute a `function`. We also have something known as an array executor. An array executor can be seen as an SIMD unit. Finally we have accelerator type executors for rapid, low latency SHA-256 and etc. This is for Spectre-U; for Spectre-S, we optimise instead for higher throughput.
+The central concept is the executor. An executor is a hardware unit whose job is to execute a `function`. We also have something known as an array executor of a certain size, e.g. 4096 bits. An array executor can be seen as an SIMD unit. Finally we have accelerator type executors for rapid, low latency SHA-256 and etc. This is for Spectre-U; for Spectre-S, we may instead optimise for higher throughput.
 
 :::tip
 The three main types of executors:
 
 - I-type executors
 - D-type SIMD/T executors
-- A-tpye executors
+- A-type executors
 :::
 
 A spectre instruction targets a specific executor. It first gets decoded in decode stage 1 and placed into queue stage 1. There it is dequeued to a chosen executor cluster. It is then decoded again and queued to execute in an available executor suited for it.
@@ -88,22 +88,25 @@ Instruction:
     Div
     Modulo
     MultiplyAccumulate
+    // Logic
     And
     Or
     Xor
     Not
+    Shift
     // Vector Computation
     Map
     // Control
     Jump
     // Memory Access
     Copy
-    Store
     // Acceleration
     Sha256
     Lookup
     FourierTransform
 ```
+
+Despite being a stack machine of sorts, there is no explicit `Store` instruction. Instead, it is built into certain arithmetic and bitwise instructions to redirect the output to the stack pointer, and an option to increment it by that amount. There are also options to overwrite the stack pointer so if your using a linear atomic value, it just gets used up in that instruction.
 
 :::note
 **Chip Design**
@@ -119,19 +122,15 @@ Less is more.
 
 I haven't tested it yet. But Im quite confident that it could see some pretty significant performance increases.
 
-The biggest parts come from the lack of interrupts and pipeline flushing, less code to execute (maybe much less), enlightening compiler that generates efficient code based on SIMD on `map` and in-place/uniqueness values. Functions are never inlined unless they're consteval'd or trivial and jump is fast. I-cache and D-cache are increased, especially D-cache. In a typical userspace GUI app, there is literally nothing that could interrupt the user's input so there is minimal latency. Since the CPU and PPU are combined into an MPU there is also minimal latency between CPU and PPU, and in fact, you can write "shaders" right in normal software and the shader functions/instructions get compiled in the same program to form specific D-type instructions. If you want specific accleration, use the acceleration library afforded by neutronapi or rei::std.
+The biggest parts come from the lack of interrupts and pipeline flushing, less code to execute (maybe much less), enlightening compiler that generates efficient code based on SIMD on `map` and in-place/uniqueness values.
+
+Functions are never inlined unless they're consteval'd or trivial and jump is fast. I-cache and D-cache are increased, especially D-cache. In a typical userspace GUI app, there is literally nothing that could interrupt the user's input so there is minimal latency. Since the CPU and PPU are combined into an MPU there is also minimal latency between CPU and PPU, and in fact, you can write "shaders" right in normal software and the shader functions/instructions get compiled in the same program to form specific D-type instructions. If you want specific accleration, use the acceleration library afforded by `neutronapi` or `rei::std`.
 
 ### Mathematical Analysis of Possible Performance
 
 Here I will attempt to analyse exactly how much performance a spectre-v1 SoC can afford vs a chip like the Snapdragon 888.
 
 Notice that the SN888 is arm-based and has a ton of extra stuff on it which I kind of just think is bloat.
-
-```rust
-let sn888 = Chip {
-    cpu: [CortexA77(); 8]
-}
-```
 
 :::note
 Sure, you don't need to be $100\%$ efficient, but even $97\%$ is much much better than $40\%$ or even $70\%$. Especially for devices we carry on us and use as supplementing tools. For high end servers and computing racks, the philosophy changes somewhat.
